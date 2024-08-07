@@ -32,6 +32,8 @@ app.use(
 
 app.use(cors());
 
+app.use('/images', express.static(join(__dirname, 'public/uploads/user')));
+
 require("app-module-path").addPath(__dirname + "/app/modules");
 global.appRoot = join(__dirname, "/app");
 config = require(resolve(join(__dirname, "app/config", "index")));
