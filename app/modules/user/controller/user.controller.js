@@ -43,7 +43,7 @@ class UserController {
   
       let saveUser = await userRepo.save(req.body);
       if (_.isObject(saveUser) && saveUser._id) {
-        const verificationLink = `${process.env.HOST}/verify-email/${saveUser.emailVerificationToken}`;
+        const verificationLink = `${process.env.HOST_URL}/verify-email/${saveUser.emailVerificationToken}`;
         const emailResult = await sendEmail(saveUser.email, 'Verify your email', `Please click this link to verify your email: ${verificationLink}`);
         
         if (emailResult.success) {
